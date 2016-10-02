@@ -7,7 +7,7 @@ var quotes = [
 ];
 
 function getRandomQuote (quotes) {
-  var ind = Math.floor(Math.random() * 3);
+  var ind = Math.floor(Math.random() * quotes.length);
   var chosenQuote = quotes[ind];
   return chosenQuote;
 }
