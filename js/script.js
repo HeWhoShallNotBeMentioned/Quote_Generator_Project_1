@@ -6,8 +6,6 @@ var quotes = [
 
 ];
 
-var htmlQuote = "";
-
 function getRandomQuote (quotes) {
   var ind = Math.floor(Math.random() * 3);
   var chosenQuote = quotes[ind];
@@ -16,9 +14,18 @@ function getRandomQuote (quotes) {
 
 function printQuote(htmlQuote) {
   var quoteObj = getRandomQuote(quotes);
-  htmlQuote += '<p class="quote">' + quoteObj.quote + '</p>';
-  htmlQuote += '<p class="source">' + quoteObj.source + '<span class="citation">' + quoteObj.citation + '</span> <span class="year">' + quoteObj.year + '</span> <span class="tags">' + quoteObj.tags + '</span></p>';
-
+  var htmlQuote = '<p class="quote">' + quoteObj.quote + '</p>';
+  htmlQuote += '<p class="source">' + quoteObj.source;
+  if (quoteObj.citation !== "") {
+    htmlQuote += '<span class="citation">' + quoteObj.citation + '</span>';
+  }
+  if (quoteObj.year !== "") {
+    htmlQuote += '<span class="year">' + quoteObj.year + '</span>';
+  }
+  if (quoteObj.tags !== "") {
+    htmlQuote += '<span class="year">' + quoteObj.tags + '</span>';
+  }
+  htmlQuote += '</p>';
   // event listener to respond to "Show another quote" button clicks
   // when user clicks anywhere on the button, the "printQuote" function is called
   document.getElementById('quote-box').innerHTML = htmlQuote;
