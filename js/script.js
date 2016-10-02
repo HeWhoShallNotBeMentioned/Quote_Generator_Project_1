@@ -14,6 +14,8 @@ function getRandomQuote (quotes) {
   return chosenQuote;
 }
 
+
+
 //requests quote from getRandomQuote. Processes that quote into the html that will be displayed.
 //Uses conditionals to print out the optional properties only when they are present.
 function printQuote(chosenQuote) {
@@ -33,6 +35,8 @@ function printQuote(chosenQuote) {
 
 //prints the code on the page.
   document.getElementById('quote-box').innerHTML = htmlQuote;
+
+  document.body.style.backgroundColor = "blue";
 
 }
 // event listener to respond to "Show another quote" button clicks
