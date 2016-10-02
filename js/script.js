@@ -7,6 +7,8 @@ var quotes = [
 
 ];
 
+var colors = ["blue","red", "silver", "blueviolet", "darkgreen", "silver", "steeleblue", "sienna", "plum", "magenta", "lightseagreen"];
+
 //function randomly determines which quote object will be chosen and returns it.
 function getRandomQuote (quotes) {
   var ind = Math.floor(Math.random() * quotes.length);
@@ -14,7 +16,11 @@ function getRandomQuote (quotes) {
   return chosenQuote;
 }
 
-
+function getRandomColor(colors) {
+  var ind = Math.floor(Math.random() * colors.length);
+  var chosenColor = colors[ind];
+  return chosenColor;
+}
 
 //requests quote from getRandomQuote. Processes that quote into the html that will be displayed.
 //Uses conditionals to print out the optional properties only when they are present.
@@ -36,7 +42,8 @@ function printQuote(chosenQuote) {
 //prints the code on the page.
   document.getElementById('quote-box').innerHTML = htmlQuote;
 
-  document.body.style.backgroundColor = "blue";
+  var backColor = getRandomColor(colors);
+  document.body.style.backgroundColor = backColor;
 
 }
 // event listener to respond to "Show another quote" button clicks
