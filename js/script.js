@@ -1,4 +1,11 @@
-//data for the application stored as an array of objects.
+//placeholder for quotes displayed per cycle;
+var displayedQuotes = [];
+
+//data for the application stored as an array.
+var colors = ["blue","red", "silver", "blueviolet", "darkgreen", "silver", "steeleblue", "sienna", "plum", "magenta", "lightseagreen"];
+
+//quote data for the application stored as an array of objects.
+function resetDisplayQuotes () {
 var quotes = [
   {quote: "To err is human but to really foul things up requires a computer.", source: "Anonymous", citation: "Farmers Almanac", year: "1978", tags: "Technology"},
   {quote: "I've been things and seen places.", source: "Mae West", citation: "I'm No Angel", year: "1933", tags: "Virtue"},
@@ -6,28 +13,41 @@ var quotes = [
   {quote: "Doh!", source: "Homer Simpson", citation: "", year: "", tags: "Surprise"}
   //{quote: "", source: "", citation: "", year: "", tags: ""},
 ];
+return quotes;
+}
 
-//data for the application stored as an array.
-var colors = ["blue","red", "silver", "blueviolet", "darkgreen", "silver", "steeleblue", "sienna", "plum", "magenta", "lightseagreen"];
 
 //function randomly determines which quote object will be chosen from quotes and returns it.
-function getRandomQuote (quotes) {
-  var ind = Math.floor(Math.random() * quotes.length);
-  var chosenQuote = quotes[ind];
+function getRandomQuote () {
+//if statement filles the displayed quotes array whenever it gets empty
+  if (displayedQuotes.length === 0) {
+    console.log("inside if statement");
+    displayedQuotes = resetDisplayQuotes();
+  }
+//choses the index # for the random quote
+  var ind = Math.floor(Math.random() * displayedQuotes.length);
+//picks the quote using the ind generated the previous line.
+  var chosenQuote = displayedQuotes[ind];
+//take out the quote from the line above for the displayedQuotes array
+  displayedQuotes.splice(ind, 1);
+//returns the chosenQuote object to the printQuote function
   return chosenQuote;
 }
 
 //function randomly determines which color will be chosen from colors and returns it.
 function getRandomColor(colors) {
+//random number that will be used for the index of the color to be selected.
   var ind = Math.floor(Math.random() * colors.length);
+//assigns the chosen color to the a variable.
   var chosenColor = colors[ind];
+//returns the color to printQuote to be used as the background-color for that particular random quote.
   return chosenColor;
 }
 
 //requests quote from getRandomQuote. Processes that quote into the html that will be displayed.
 //Uses conditionals to print out the optional properties only when they are present.
 function printQuote(chosenQuote) {
-  var quoteObj = getRandomQuote(quotes);
+  var quoteObj = getRandomQuote();
   var htmlQuote = '<p class="quote">' + quoteObj.quote + '</p>';
   htmlQuote += '<p class="source">' + quoteObj.source;
   if (quoteObj.citation !== "") {
@@ -43,8 +63,9 @@ function printQuote(chosenQuote) {
 
 //prints the code on the page.
   document.getElementById('quote-box').innerHTML = htmlQuote;
-
+//calls the getRandomColor function, sends the colors array, and assigns the result to backColor.
   var backColor = getRandomColor(colors);
+//changes the background-color to the color received from the getRandomColor function;
   document.body.style.backgroundColor = backColor;
 
 }
