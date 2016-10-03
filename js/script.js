@@ -4,6 +4,9 @@ var displayedQuotes = [];
 //data for the application stored as an array.
 var colors = ["blue","red", "silver", "blueviolet", "darkgreen", "silver", "steeleblue", "sienna", "plum", "magenta", "lightseagreen"];
 
+//sets a time interval of 5 seconds when the quote will automatically change.
+var intervalId = window.setInterval(printQuote, 5000);
+
 //quote data for the application stored as an array of objects.
 function resetDisplayQuotes () {
 var quotes = [
