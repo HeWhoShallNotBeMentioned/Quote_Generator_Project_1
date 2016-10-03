@@ -13,12 +13,16 @@ var quotes = [
   {quote: "To err is human but to really foul things up requires a computer.", source: "Anonymous", citation: "Farmers Almanac", year: "1978", tags: "Technology"},
   {quote: "I've been things and seen places.", source: "Mae West", citation: "I'm No Angel", year: "1933", tags: "Virtue"},
   {quote: "Marriage isn't a word...it's a sentence!", source: "King Vidor", citation: "The Crowd", year: "1928", tags: "Marriage"},
-  {quote: "Doh!", source: "Homer Simpson", citation: "", year: "", tags: "Surprise"}
+  {quote: "Doh!", source: "Homer Simpson", citation: "", year: "", tags: "Surprise"},
+  {quote: "I'm not lazy, I'm just on energy saving mode.", source: "Anonymous", citation: "", year: "", tags: "Lifestyle"},
+  {quote: "Never, ever underestimate the importance of having fun.", source: "Randy Pausch", citation: "", year: "", tags: ""},
+  {quote: "The great pleasure in life is doing what people say you cannot do.", source: "Walter Bagehot", citation: "", year: "", tags: "Lifestyle"},
+  {quote: "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering.", source: "Yoda", citation: "The Empire Strikes Back", year: "", tags: "Culture"},
+  {quote: "No Luke. I am your father", source: "Darth Vader", citation: "The Empire Strikes Back", year: "", tags: "Family"},
   //{quote: "", source: "", citation: "", year: "", tags: ""},
 ];
 return quotes;
 }
-
 
 //function randomly determines which quote object will be chosen from quotes and returns it.
 function getRandomQuote () {
